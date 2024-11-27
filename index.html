@@ -1,0 +1,51 @@
+<head>
+  <link rel="stylesheet" href="styles.css" />
+  <title>Writing</title>
+</head>
+<body>
+  <div id="counter-container">
+    <span id="count-display">0</span>
+    <select id="count-type">
+      <option value="chars">characters</option>
+      <option value="words">words</option>
+    </select>
+  </div>
+  <div class="content-container">
+    <textarea
+      id="prompt"
+      placeholder="Prompt..."
+      class="prompt-area"
+    ></textarea>
+    <textarea id="input" placeholder="Write..."></textarea>
+  </div>
+
+  <script>
+    const textarea = document.getElementById("input");
+    const promptArea = document.getElementById("prompt");
+    const countDisplay = document.getElementById("count-display");
+    const countType = document.getElementById("count-type");
+
+    function countWords(text) {
+      return text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
+    }
+
+    function updateCount() {
+      const text = textarea.value;
+      const count =
+        countType.value === "chars" ? text.length : countWords(text);
+      countDisplay.textContent = count;
+    }
+
+    function autoResize(element) {
+      element.style.height = "auto";
+      element.style.height = element.scrollHeight + "px";
+    }
+
+    textarea.addEventListener("input", updateCount);
+    countType.addEventListener("change", updateCount);
+    promptArea.addEventListener("input", () => autoResize(promptArea));
+
+    // Initial resize
+    autoResize(promptArea);
+  </script>
+</body>
