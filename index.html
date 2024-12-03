@@ -1,51 +1,25 @@
 <head>
   <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
   <title>Writing</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+
 <body>
-  <div id="counter-container">
+  <div id="nav-container">
+    <select id="template-type">
+      <option value="freewrite">Free Write</option>
+      <option value="prompt">Prompt</option>
+    </select>
+
     <span id="count-display">0</span>
     <select id="count-type">
       <option value="chars">characters</option>
       <option value="words">words</option>
     </select>
   </div>
-  <div class="content-container">
-    <textarea
-      id="prompt"
-      placeholder="Prompt..."
-      class="prompt-area"
-    ></textarea>
-    <textarea id="input" placeholder="Write..."></textarea>
+  <div id="content-container">
+    <!-- Content will be loaded here -->
   </div>
-
-  <script>
-    const textarea = document.getElementById("input");
-    const promptArea = document.getElementById("prompt");
-    const countDisplay = document.getElementById("count-display");
-    const countType = document.getElementById("count-type");
-
-    function countWords(text) {
-      return text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
-    }
-
-    function updateCount() {
-      const text = textarea.value;
-      const count =
-        countType.value === "chars" ? text.length : countWords(text);
-      countDisplay.textContent = count;
-    }
-
-    function autoResize(element) {
-      element.style.height = "auto";
-      element.style.height = element.scrollHeight + "px";
-    }
-
-    textarea.addEventListener("input", updateCount);
-    countType.addEventListener("change", updateCount);
-    promptArea.addEventListener("input", () => autoResize(promptArea));
-
-    // Initial resize
-    autoResize(promptArea);
-  </script>
 </body>
