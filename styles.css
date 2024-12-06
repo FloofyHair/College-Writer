@@ -73,17 +73,16 @@ select option {
 
 textarea {
     all: unset;
-    width: 100%;    padding: 20px 40px;
+    width: 100%;    
+    padding: 20px 40px;
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    height: auto;
     box-sizing: border-box;
 }
 
-#input {
+#write {
     min-height: 80vh;
-    padding-top: 40px;
 }
 
 #prompt {

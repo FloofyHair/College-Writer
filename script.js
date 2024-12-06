@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("v1.4");
+  console.log("v1.6");
 
   // nav elements
   const countDisplay = document.getElementById("count-display");
