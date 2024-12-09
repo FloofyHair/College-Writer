@@ -66,6 +66,7 @@ select option {
     flex-direction: column;
     gap: 20px;
     width: min(1000px, 95%);
+    height: 85vh;
     margin-top: 70px;
 
     /* border: #f00 solid 2px; */
@@ -82,7 +83,8 @@ textarea {
 }
 
 #write {
-    min-height: 80vh;
+    flex-grow: 1;
+    min-height: 0;
 }
 
 #prompt {
